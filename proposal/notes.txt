@@ -1,0 +1,17 @@
+/* CSV */
+03256c,2541b2,1768ac,06bee1,ffffff
+
+/* Array */
+["03256c","2541b2","1768ac","06bee1","ffffff"]
+
+/* Object */
+{"Royal Blue Dark":"03256c","Denim Blue":"2541b2","Sapphire Blue":"1768ac","Vivid Sky Blue":"06bee1","White":"ffffff"}
+
+/* Extended Array */
+[
+  {"name":"Royal Blue Dark","hex":"03256c","rgb":[3,37,108],"cmyk":[97,66,0,58],"hsb":[221,97,42],"hsl":[221,95,22],"lab":[18,20,-44]},
+  {"name":"Denim Blue","hex":"2541b2","rgb":[37,65,178],"cmyk":[79,63,0,30],"hsb":[228,79,70],"hsl":[228,66,42],"lab":[33,32,-63]},
+  {"name":"Sapphire Blue","hex":"1768ac","rgb":[23,104,172],"cmyk":[87,40,0,33],"hsb":[207,87,67],"hsl":[207,76,38],"lab":[43,2,-43]},
+  {"name":"Vivid Sky Blue","hex":"06bee1","rgb":[6,190,225],"cmyk":[97,16,0,12],"hsb":[190,97,88],"hsl":[190,95,45],"lab":[71,-27,-29]},
+  {"name":"White","hex":"ffffff","rgb":[255,255,255],"cmyk":[0,0,0,0],"hsb":[0,0,100],"hsl":[0,0,100],"lab":[100,0,0]}
+]
