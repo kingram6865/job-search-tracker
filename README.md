@@ -54,29 +54,26 @@ _The **Job Search Activity Tracker** MVP records a comnpany, a job offered by th
 
 > Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
-![Dummy Link](url)
+![Image](proposal\Activity.png)
 
-- Desktop Landing
+- Activity Screen
 
-![Dummy Link](url)
+![Image](proposal\AddCompany.png)
 
-- Desktop Hero
+- Add Company Screen
 
-![Dummy Link](url)
+![Image](proposal\AddJob.png)
 
-- Resource Index
+- Add Job Screen
 
-![Dummy Link](url)
+![Image](proposal\ListOfCompanies.png)
 
-- Resource Show
+- List of Companies Screen
 
-![Dummy Link](url)
+![Image](proposal\MainMenu.png)
 
-- Tablet Resource Index
+- Main Menu Screen
 
-![Dummy Link](url)
-
-- Mobile Resource Index
 
 #### Component Tree
 ``` structure
@@ -163,7 +160,7 @@ src
 
 #### ERD Model
 
-![Image](job-search-tracker\proposal\SEIProject4EDM.pdf)
+![PDF](proposal\SEIProject4EDM.pdf)
 
 <br>
 
