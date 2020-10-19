@@ -42,9 +42,10 @@ _The **Job Search Activity Tracker** MVP records a comnpany, a job offered by th
 | :--------------: | :----------------------------------------- |
 |      React       | _Front end presentation._ |
 |   React Router   | _Control redirects between update and display screens._ |
-| React SemanticUI | _Identify components._ |
 |     Express      | _Routing between screens in the client view._ |
 |      Rails       | _Back End API construction._ |
+|      Axios       | _API Accessing._ |
+|     Postgres     | _Database Layer._ |
 
 <br>
 
