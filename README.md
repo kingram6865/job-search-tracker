@@ -161,7 +161,7 @@ src
 
 #### ERD Model
 
-![PDF](proposal/SEIProject4EDM.pdf)
+[PDF](proposal/SEIProject4EDM.pdf)
 
 <br>
 
