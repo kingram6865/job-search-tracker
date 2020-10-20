@@ -10,14 +10,14 @@
 # User.create!(username: 'raymond', email: 'ken.ingram@gmail.com', password_digest: '123456')
 # User.create!(username: 'david', email: 'ken.ingram@gmail.com', password_digest: '123456')
 # User.create!(username: 'chris', email: 'ken.ingram@gmail.com', password_digest: '123456')
-# User.create!(username: 'mary', email: 'ken.ingram@gmail.com', password_digest: '123456')
+user=User.create!(username: 'bill', email: 'bill@bill.com', password: '123456')
 
-Company.create(company_name:"IBM", industry:"tech", general_rating:5, external_recruiter: true)
-Company.create(company_name:"Google", industry:"tech", general_rating:5, external_recruiter: true)
-Company.create(company_name:"Autodesk", industry:"tech", general_rating:5, external_recruiter: true)
+# Company.create(company_name:"IBM", industry:"tech", general_rating:5, external_recruiter: true)
+# Company.create(company_name:"Google", industry:"tech", general_rating:5, external_recruiter: true)
+# Company.create(company_name:"Autodesk", industry:"tech", general_rating:5, external_recruiter: true)
 
-Job.create(job_name:"Programmer" , keywords:"java, React", job_details:"A lot of stuff", company_id: 1)
-Job.create(job_name:"Programmer" , keywords:"java, React", job_details:"A lot of stuff", company_id: 2)
+# Job.create(job_name:"Programmer" , keywords:"java, React", job_details:"A lot of stuff", company_id: 1)
+job=Job.create(job_name:"Programmer" , keywords:"java, React", job_details:"A lot of stuff", company_id: 2)
 
-ActivityLog.create(entry_date: "2020-10-20 18:43:28", action:"recorded", status:"good", follow_up:"none", job_id:1, user_id: 1)
-ActivityLog.create(entry_date: "2020-10-20 18:43:28", action:"recorded", status:"good", follow_up:"none", job_id:2, user_id: 1)
+ActivityLog.create!(entry_date: "2020-10-20 18:43:28", action:"recorded", status:"good", follow_up:"none", job_id: job.id, user_id: user.id)
+ActivityLog.create!(entry_date: "2020-10-20 18:43:28", action:"recorded", status:"good", follow_up:"none", job_id: job.id, user_id: user.id)
