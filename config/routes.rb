@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   
   resources :users
-  resources :company
+  resources :companies
+  resources :jobs
+  resources :activity_logs
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
