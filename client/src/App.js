@@ -9,7 +9,8 @@ import CompanyCreate from './components/CompanyCreate/CompanyCreate'
 import JobList from './screens/JobList/JobList'
 import ActivityLog from './screens/ActivityLog/ActivityLog'
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
-import { getAllCompanies, getOneCompany, postCompany, putCompany, destroyCompany } from './services/company'
+// import { getAllCompanies, getOneCompany, postCompany, putCompany, destroyCompany } from './services/company'
+import { postCompany } from './services/company'
 import { getAllActivities, getOneActivity, postActivity, putActivity, destroyActivity } from './services/activity'
 import { getAllJobs, getOneJob, postJob, putJob, destroyJob } from './services/job'
 
