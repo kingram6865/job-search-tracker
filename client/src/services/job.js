@@ -1,6 +1,6 @@
-import from './api-config'
+import api from './api-config'
 
-export const getAllJob = async () => {
+export const getAllJobs = async () => {
   const resp = await api.get('/jobs')
   return resp.data
 }

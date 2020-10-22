@@ -1,4 +1,4 @@
-import from './api-config'
+import api from './api-config'
 
 export const getAllCompanies = async () => {
   const resp = await api.get('/companies')
