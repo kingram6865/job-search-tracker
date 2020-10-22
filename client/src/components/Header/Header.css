@@ -1,0 +1,26 @@
+h1 {
+  color: white;
+}
+
+.user-label {
+  font-weight: bold;
+  font-size: large;
+  padding: 0 0 5px 0;
+}
+
+.header-container {
+  background-color: #06BEE1;
+}
+
+.logout-button {
+  border-radius: 25%;
+  font-weight: bold;
+}
+
+.header-links li {
+  font-weight: bold;
+  font-size: x-large;
+  color: #2541B2;
+  display: inline;
+  padding: 0 5px 0 5px;
+}
