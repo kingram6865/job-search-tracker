@@ -9,7 +9,7 @@ export default function Header(props) {
     <div className="header-container">
       <h1><Link to='/'>Job-Search Progress-Tracker</Link></h1>
       {/* <span className="user-label">{currentUser}</span> */}
-      <div className="user-label">username{currentUser}</div>
+      <div className="user-label">{currentUser && currentUser.username}</div>
       <button className="logout-button" onClick={handleLogout}>Logout</button>
       <ul className="header-links">
         <li><Link to='/companies'>Companies</Link></li>|

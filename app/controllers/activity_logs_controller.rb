@@ -1,6 +1,6 @@
 class ActivityLogsController < ApplicationController
   before_action :set_activity, only: [:show, :update, :destroy]
-  # before_action :authorize_request, only: [:show, :create, :update, :destroy]
+  before_action :authorize_request, only: [:show, :create, :update, :destroy]
 
   def index
     @activities = ActivityLog.all

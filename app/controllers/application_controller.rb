@@ -17,8 +17,6 @@ class ApplicationController < ActionController::API
     begin
       @decoded = decode(header)
       @current_user = User.find(@decoded[:id])
-      @activities = Activity.where(user_id: @current_user.id)
-      # @current_company = 
     rescue ActiveRecord::RecordNotFound => e
       render json: { errors: e.message }, status: :unauthorized
     rescue

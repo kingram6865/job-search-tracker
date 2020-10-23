@@ -21,7 +21,7 @@ export default function Login(props) {
         }}>
         <input type="text" name="username" value={formData.username} onChange={handleChange}/>
         <input type="password" name="password" value={formData.password} onChange={handleChange}/>
-        <button>Create Login</button>
+        <button>Login</button>
       </form>
     </div>
   )

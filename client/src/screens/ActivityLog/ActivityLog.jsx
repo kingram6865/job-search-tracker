@@ -11,7 +11,7 @@ export default function ActivityLog(props) {
       setActivity(activityData)
     }
     fetchActivities()
-  }, [])
+  }, [getAllActivities])
 
   return (
     <div className="activity-log-screen">

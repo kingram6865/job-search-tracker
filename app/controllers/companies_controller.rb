@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :update, :destroy]
-  # before_action :authorize_request, only: [:show, :create, :update, :destroy] 
+  before_action :authorize_request, only: [:show, :create, :update, :destroy] 
 
   def index
     @companies = Company.all
@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
   end
 
   def show 
-    render json: @company, include: :jobs
+    render json: @company
   end
 
   def create

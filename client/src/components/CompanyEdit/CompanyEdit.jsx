@@ -1,44 +1,57 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 export default function CompanyEdit(props) {
-  const [formData, setFormData] = useState({
+  const { putCompany, getOneCompany } = props
+  const { id } = useParams()
+  const [company, setCompany] = useState({
     companyName: "",
     industry: "",
     generalRating: "0",
     externalRecruiter: "f"
   })
 
-  const { putCompany } = props
-
   function handleChange(e) {
     const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-    console.log(formData)
+    setCompany({ ...company, [name]: value })
+    console.log(company)
   }
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(formData)
+    putCompany(id, company)
+    console.log(id, company)
   }
 
+  useEffect(() => {
+    const fetchCompany = async () => {
+      const companyData = await getOneCompany(id)
+      // const {companyName, industry, companyRating, externalRecruiter} = companyData
+      setCompany(companyData)
+    }
+    fetchCompany()
+  }, [getOneCompany, id])
 
   return(
     <div>
       <h3>Edit Company Data</h3>
-      <form onSubmit>
-        <label>Company Name:
-        <input type="text" onChange={handleChange} value={formData.companyName}></input>
-        </label>
-        <label>Industry
-        <input type="text" onChange={handleChange} value={formData.industry}></input>
-        </label>
-        <label>Company Rating
-        <input type="number" min="0" max="5" onChange={handleChange} value={formData.companyRating}></input>
-        </label>
-        <label>External Recruiter?
-        <input type="checkbox" onChange={handleChange} value={formData.externalRecruiter}></input>
-        </label>                        
-      </form>
+
+          <form onSubmit={handleSubmit}>
+            <label>Company Name:
+            <input name ="companyName" type="text" onChange={handleChange} value={company.companyName}></input>
+            </label>
+            <label>Industry
+            <input name ="industry" type="text" onChange={handleChange} value={company.industry}></input>
+            </label>
+            <label>Company Rating
+            <input name ="companyRating" type="number" min="0" max="5" onChange={handleChange} value={company.companyRating}></input>
+            </label>
+            <label>External Recruiter?
+            <input name ="externalRecruiter" type="checkbox" onChange={handleChange} value={company.externalRecruiter}></input>
+            </label>
+            <button>Update Record</button>
+          </form>
+ 
     </div>
   )
 }

@@ -9,7 +9,7 @@ export default function ActivityCreate(props) {
     userID: 1
   })
 
-  
+  const {postActivity} = props
 
   function handleChange(e) {
    const { name, value } = e.target
@@ -19,8 +19,7 @@ export default function ActivityCreate(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-
-
+    postActivity(formData)
     console.log(formData)
   }
 

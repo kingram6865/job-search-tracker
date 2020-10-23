@@ -12,8 +12,9 @@ import ActivityLog from './screens/ActivityLog/ActivityLog'
 
 import CompanyDetail from './components/CompanyDetail/CompanyDetail'
 import JobDetail from './components/JobDetail/JobDetail'
-import CompanyCreate from './components/CompanyCreate/CompanyCreate'
-import JobCreate from './components/JobCreate/JobCreate'
+// import CompanyCreate from './components/CompanyCreate/CompanyCreate'
+// import JobCreate from './components/JobCreate/JobCreate'
+import CompanyEdit from './components/CompanyEdit/CompanyEdit'
 
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
 import { getAllCompanies, getOneCompany, postCompany, putCompany, destroyCompany } from './services/company'
@@ -22,8 +23,6 @@ import { getAllJobs, getOneJob, postJob, putJob, destroyJob } from './services/j
 
 import { Route, useHistory, Switch } from 'react-router-dom'
 
-
-
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const history = useHistory()
@@ -31,6 +30,7 @@ function App() {
   useEffect(() => {
     const handleVerify = async () => {
       const userData = await verifyUser()
+
       setCurrentUser(userData)
     }
     handleVerify()
@@ -68,7 +68,10 @@ function App() {
             <Login handleLogin={handleLogin}/>
           </Route>
           <Route exact path='/register'>
-            <Register handleRegister={handleRegister}/>
+            <Register 
+              handleRegister={handleRegister}
+              currentUser={currentUser}
+              />
           </Route>
           <Route exact path='/companies'>
             <CompanyList 
@@ -109,6 +112,7 @@ function App() {
           <Route exact path='/'>
             <Main />
           </Route>
+          <Route exact path='/company/:id/edit' render={(props) => <CompanyEdit putCompany={putCompany} getOneCompany={getOneCompany} />} />
         </Switch>
       </Layout>
     </div>
