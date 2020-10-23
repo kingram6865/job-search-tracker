@@ -112,7 +112,7 @@ function App() {
           <Route exact path='/'>
             <Main />
           </Route>
-          <Route exact path='/company/:id/edit' render={(props) => <CompanyEdit putCompany={putCompany} getOneCompany={getOneCompany} />} />
+          <Route exact path='/companies/:id/edit' render={(props) => <CompanyEdit putCompany={putCompany} getOneCompany={getOneCompany} />} />
         </Switch>
       </Layout>
     </div>

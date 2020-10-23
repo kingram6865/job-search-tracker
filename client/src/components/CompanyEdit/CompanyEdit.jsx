@@ -5,10 +5,10 @@ export default function CompanyEdit(props) {
   const { putCompany, getOneCompany } = props
   const { id } = useParams()
   const [company, setCompany] = useState({
-    companyName: "",
+    company_name: "",
     industry: "",
-    generalRating: "0",
-    externalRecruiter: "f"
+    general_rating: "0",
+    external_recruiter: "f"
   })
 
   function handleChange(e) {
@@ -38,16 +38,16 @@ export default function CompanyEdit(props) {
 
           <form onSubmit={handleSubmit}>
             <label>Company Name:
-            <input name ="companyName" type="text" onChange={handleChange} value={company.companyName}></input>
+            <input name ="company_name" type="text" onChange={handleChange} value={company.companyName}></input>
             </label>
             <label>Industry
             <input name ="industry" type="text" onChange={handleChange} value={company.industry}></input>
             </label>
             <label>Company Rating
-            <input name ="companyRating" type="number" min="0" max="5" onChange={handleChange} value={company.companyRating}></input>
+            <input name ="company_rating" type="number" min="0" max="5" onChange={handleChange} value={company.companyRating}></input>
             </label>
             <label>External Recruiter?
-            <input name ="externalRecruiter" type="checkbox" onChange={handleChange} value={company.externalRecruiter}></input>
+            <input name ="external_recruiter" type="checkbox" onChange={handleChange} value={company.externalRecruiter}></input>
             </label>
             <button>Update Record</button>
           </form>
