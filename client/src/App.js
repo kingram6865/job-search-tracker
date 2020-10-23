@@ -11,6 +11,7 @@ import JobList from './screens/JobList/JobList'
 import ActivityLog from './screens/ActivityLog/ActivityLog'
 
 import CompanyDetail from './components/CompanyDetail/CompanyDetail'
+import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 import JobDetail from './components/JobDetail/JobDetail'
 // import CompanyCreate from './components/CompanyCreate/CompanyCreate'
 // import JobCreate from './components/JobCreate/JobCreate'
@@ -106,10 +107,10 @@ function App() {
           <Route exact path='/jobs/:id'>
             <JobDetail />
           </Route>
-          <Route exact path='/activity_logs/:id'>
-            <ActivityLog />
+          <Route exact path='/activity_log/:id'>
+            <ActivityDetail />
           </Route>
-          <Route exact path='/'>
+           <Route exact path='/'>
             <Main />
           </Route>
           <Route exact path='/companies/:id/edit' render={(props) => <CompanyEdit putCompany={putCompany} getOneCompany={getOneCompany} />} />

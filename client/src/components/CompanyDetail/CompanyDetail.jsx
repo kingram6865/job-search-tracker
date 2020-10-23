@@ -12,11 +12,10 @@ export default function Company(props) {
     const fetchCompany = async () => {
       const companyItem = await getOneCompany(id)
       setCompany(companyItem)
-      console.log(companyItem)
     } 
 
     fetchCompany()
-  }, [])
+  }, [id])
 
   return (
     <div className="company-info">

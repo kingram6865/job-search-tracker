@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
+
+import CompanyCreate from '../../components/CompanyCreate/CompanyCreate'
+import { postCompany } from '../../services/company'
 
 /**
  * List all the companies 
@@ -11,7 +14,6 @@ export default function CompanyList(props) {
   useEffect(() => {
     const fetchCompanies = async () => {
       const companyData = await getAllCompanies()
-      // console.log(companyData)
       setCompanies(companyData)
     }
     fetchCompanies()
@@ -26,6 +28,13 @@ export default function CompanyList(props) {
         <ul className="companies-list">
           {companies.map(item => (<li key={item.id}><Link to={`/companies/${item.id}`}>{item.company_name}</Link></li>))}
         </ul>
+        <Link to='/companies' className="action-button">Add A Company</Link>
+
+        <Switch>
+          <Route path='/companies/add'>
+            <CompanyCreate postCompany={postCompany} />
+          </Route>
+        </Switch>
         </>
       }
     </div>
