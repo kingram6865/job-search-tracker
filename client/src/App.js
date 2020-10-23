@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+
 import './App.css';
 
 import Layout from './layouts/Layout'
 import Main from './screens/Main/Main'
 // import Login from './screens/Login/Login'
-// import CompanyList from './screens/CompanyList/CompanyList'
-import CompanyCreate from './components/CompanyCreate/CompanyCreate'
+import CompanyList from './screens/CompanyList/CompanyList'
 import JobList from './screens/JobList/JobList'
 import ActivityLog from './screens/ActivityLog/ActivityLog'
+import CompanyDetail from './components/CompanyDetail/CompanyDetail'
+// import CompanyCreate from './components/CompanyCreate/CompanyCreate'
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
-// import { getAllCompanies, getOneCompany, postCompany, putCompany, destroyCompany } from './services/company'
-import { postCompany } from './services/company'
+import { getAllCompanies, getOneCompany, postCompany, putCompany, destroyCompany } from './services/company'
+// import { postCompany } from './services/company'
 import { getAllActivities, getOneActivity, postActivity, putActivity, destroyActivity } from './services/activity'
 import { getAllJobs, getOneJob, postJob, putJob, destroyJob } from './services/job'
 
@@ -49,6 +51,8 @@ function App() {
     alert("Logging Out")
   }
 
+
+
   return (
     <div className="App">
       <Layout 
@@ -59,16 +63,16 @@ function App() {
       >
         <Switch>
           <Route exact path='/company'>
-            <CompanyCreate postCompany={postCompany} />
-            {/* <CompanyList 
+            {/* <CompanyCreate postCompany={postCompany} /> */}
+            <CompanyList 
               getAllCompanies={getAllCompanies}
               getOneCompany={getOneCompany}
               postCompany={postCompany}
               putCompany={putCompany}
               destroyCompany={destroyCompany}
-            /> */}
+            />
           </Route>
-          <Route exact path='/job'>
+          <Route exact path='/jobs'>
             <JobList 
               getAllJobs={getAllJobs}
               getOneJob={getOneJob}
@@ -77,7 +81,7 @@ function App() {
               destroyJob={destroyJob}
             />
           </Route>
-          <Route path='/activity'>
+          <Route path='/activities'>
             <ActivityLog 
               getAllActivities={getAllActivities}
               getOneActivity={getOneActivity}
@@ -86,6 +90,10 @@ function App() {
               destroyActivity={destroyActivity}
             />
           </Route>
+          <Route exact path='/companies/:id'>
+            <CompanyDetail />
+          </Route>
+
           <Route exact path='/'>
             <Main />
           </Route>

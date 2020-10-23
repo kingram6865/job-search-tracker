@@ -7,7 +7,7 @@ export default function Header(props) {
 
   return (
     <div className="header-container">
-      <h1>Job-Search Progress-Tracker</h1>
+      <h1><Link to='/'>Job-Search Progress-Tracker</Link></h1>
       {/* <span className="user-label">{currentUser}</span> */}
       <div className="user-label">username{currentUser}</div>
       <button className="logout-button" onClick={handleLogout}>Logout</button>

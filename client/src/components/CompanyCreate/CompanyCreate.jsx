@@ -8,17 +8,18 @@ export default function CompanyCreate(props) {
     externalRecruiter: "f"
   })
 
-  const {postCompany} = props
+  const { postCompany } = props
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(formData)
+    postCompany(formData)
+    // console.log(formData)
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
-    console.log(`Value of ${name} Changed to ${value}`)
+    // console.log(`Value of ${name} Changed to ${value}`)
   }
 
   return (

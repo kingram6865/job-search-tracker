@@ -10,12 +10,6 @@ class CompaniesController < ApplicationController
 
   def show 
     render json: @company, include: :jobs
-
-    if @company.save
-      render json: @food, status: :created, location: @company
-    else
-      render json: @company.errors, status: :unprocessable_entity
-    end
   end
 
   def create

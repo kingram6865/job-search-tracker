@@ -18,7 +18,7 @@ class ActivityLogsController < ApplicationController
     if @activity.save
       render json: @activity, status: :created, location: @activity
     else
-      render json: @activity_log.errors, status: :unprocessable_entity
+      render json: @activity.errors, status: :unprocessable_entity
     end
   end
 
