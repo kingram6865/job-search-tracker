@@ -4,7 +4,6 @@ export default function Login(props) {
   const { handleLogin } = props
   const [formData, setFormData] = useState({
     username: '',
-    email: '',
     password: ''
   })
 
@@ -18,7 +17,7 @@ export default function Login(props) {
       <form onSubmit={(e) => {
         e.preventDefault()
         handleLogin(formData)
-        alert(formData)
+        alert(JSON.stringify(formData))
         }}>
         <input type="text" name="username" value={formData.username} onChange={handleChange}/>
         <input type="password" name="password" value={formData.password} onChange={handleChange}/>
