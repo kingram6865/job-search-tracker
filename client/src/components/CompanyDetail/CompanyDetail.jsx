@@ -22,6 +22,10 @@ export default function Company(props) {
         company &&
         <>
           <h3>{company.company_name}</h3>
+          <p>{company.industry}</p>
+          <p>{company.general_rating}</p>
+          {company.external_recruiter ? (<p>Recruiter</p>) : null}
+          
         </>
       }
     </div>
