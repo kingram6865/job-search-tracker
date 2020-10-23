@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getOneCompany } from '../../services/company'
+import { verifyUser } from '../../services/auth'
 
 export default function Company(props) {
   const [company, setCompany] = useState(null)
   const { id } = useParams()
 
   useEffect(() => {
+    verifyUser()
     const fetchCompany = async () => {
       const companyItem = await getOneCompany(id)
       setCompany(companyItem)
@@ -14,7 +16,7 @@ export default function Company(props) {
     } 
 
     fetchCompany()
-  }, [id])
+  }, [])
 
   return (
     <div className="company-info">
