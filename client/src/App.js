@@ -13,7 +13,7 @@ import ActivityLog from './screens/ActivityLog/ActivityLog'
 import CompanyDetail from './components/CompanyDetail/CompanyDetail'
 import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 import JobDetail from './components/JobDetail/JobDetail'
-// import CompanyCreate from './components/CompanyCreate/CompanyCreate'
+import CompanyCreate from './components/CompanyCreate/CompanyCreate'
 // import JobCreate from './components/JobCreate/JobCreate'
 import CompanyEdit from './components/CompanyEdit/CompanyEdit'
 
@@ -114,6 +114,11 @@ function App() {
             <Main />
           </Route>
           <Route exact path='/companies/:id/edit' render={(props) => <CompanyEdit putCompany={putCompany} getOneCompany={getOneCompany} />} />
+
+          <Route path='/add/company'>
+            <CompanyCreate postCompany={postCompany} />
+          </Route>
+
         </Switch>
       </Layout>
     </div>

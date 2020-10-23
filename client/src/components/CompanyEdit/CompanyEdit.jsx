@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { verifyUser } from '../../services/auth'
 
 export default function CompanyEdit(props) {
@@ -11,16 +11,17 @@ export default function CompanyEdit(props) {
     general_rating: "0",
     external_recruiter: "f"
   })
+  const history = useHistory()
 
   function handleChange(e) {
     const { name, value } = e.target
     setCompany({ ...company, [name]: value })
-    console.log(company)
   }
 
   function handleSubmit(e) {
     e.preventDefault()
     putCompany(id, company)
+    history.push('/companies')
   }
 
   useEffect(() => {
@@ -46,7 +47,7 @@ export default function CompanyEdit(props) {
           <input name ="general_rating" type="number" min="0" max="5" onChange={handleChange} value={company.general_rating}></input>
           </label>
           <label>External Recruiter?
-          <input name ="external_recruiter" type="checkbox" onChange={handleChange} value={company.external_recruiter}></input>
+          <input name ="external_recruiter" type="checkbox" onChange={handleChange} value={company.external_recruiter ? 't' : 'f'}></input>
           </label>
           <button>Update Record</button>
         </form>

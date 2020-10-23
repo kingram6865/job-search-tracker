@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(copmany_params)
+    @company = Company.new(company_params)
 
     if @company.save
       render json: @company, status: :created, location: @company

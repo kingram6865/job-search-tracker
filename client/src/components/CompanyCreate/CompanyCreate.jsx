@@ -1,25 +1,26 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function CompanyCreate(props) {
   const [formData, setFormData] = useState({
-    companyName: "",
+    company_name: "",
     industry: "",
-    generalRating: "0",
-    externalRecruiter: "f"
+    general_rating: "0",
+    external_recruiter: "f"
   })
 
+  const history = useHistory()
   const { postCompany } = props
 
   const handleSubmit = (e) => {
     e.preventDefault()
     postCompany(formData)
-    // console.log(formData)
+    history.push('/companies')
   }
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
-    // console.log(`Value of ${name} Changed to ${value}`)
   }
 
   return (
@@ -27,7 +28,7 @@ export default function CompanyCreate(props) {
         <h3>Add A Company</h3>
         <form onSubmit={handleSubmit}>
           <label> Company Name:
-            <input type="text" name="companyName" onChange={handleChange} value={formData.companyName} />
+            <input type="text" name="company_name" onChange={handleChange} value={formData.company_name} />
           </label>
 
           <label>Industry:
@@ -35,11 +36,11 @@ export default function CompanyCreate(props) {
           </label>
 
           <label>Company Rating:
-            <input type="number" min="0" max="5" name="generalRating" onChange={handleChange} value={formData.generalRating} />
+            <input type="number" min="0" max="5" name="general_rating" onChange={handleChange} value={formData.general_rating} />
           </label>
 
           <label> External Recruiter?
-            <input type="checkbox" name="externalRecruiter" onChange={handleChange} value={formData.externalRecruiter} />
+            <input type="checkbox" name="external_recruiter" onChange={handleChange} value={formData.external_recruiter} />
           </label>
           <button>Save</button>
         </form>
