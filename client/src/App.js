@@ -4,20 +4,24 @@ import './App.css';
 
 import Layout from './layouts/Layout'
 import Main from './screens/Main/Main'
-// import Login from './screens/Login/Login'
+import Login from './screens/Login/Login'
+import Register from './screens/Register/Register'
 import CompanyList from './screens/CompanyList/CompanyList'
 import JobList from './screens/JobList/JobList'
 import ActivityLog from './screens/ActivityLog/ActivityLog'
+
 import CompanyDetail from './components/CompanyDetail/CompanyDetail'
-// import CompanyCreate from './components/CompanyCreate/CompanyCreate'
+import JobDetail from './components/JobDetail/JobDetail'
+import CompanyCreate from './components/CompanyCreate/CompanyCreate'
+import JobCreate from './components/JobCreate/JobCreate'
+
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
 import { getAllCompanies, getOneCompany, postCompany, putCompany, destroyCompany } from './services/company'
-// import { postCompany } from './services/company'
 import { getAllActivities, getOneActivity, postActivity, putActivity, destroyActivity } from './services/activity'
 import { getAllJobs, getOneJob, postJob, putJob, destroyJob } from './services/job'
 
 import { Route, useHistory, Switch } from 'react-router-dom'
-// import { useHistory } from 'react-router-dom'
+
 
 
 function App() {
@@ -51,8 +55,6 @@ function App() {
     alert("Logging Out")
   }
 
-
-
   return (
     <div className="App">
       <Layout 
@@ -62,8 +64,13 @@ function App() {
         handleRegister={handleRegister}
       >
         <Switch>
-          <Route exact path='/company'>
-            {/* <CompanyCreate postCompany={postCompany} /> */}
+          <Route exact path='/login'>
+            <Login handleLogin={handleLogin}/>
+          </Route>
+          <Route exact path='/register'>
+            <Register handleRegister={handleRegister}/>
+          </Route>
+          <Route exact path='/companies'>
             <CompanyList 
               getAllCompanies={getAllCompanies}
               getOneCompany={getOneCompany}
@@ -93,7 +100,12 @@ function App() {
           <Route exact path='/companies/:id'>
             <CompanyDetail />
           </Route>
-
+          <Route exact path='/jobs/:id'>
+            <JobDetail />
+          </Route>
+          <Route exact path='/activity_logs/:id'>
+            <ActivityLog />
+          </Route>
           <Route exact path='/'>
             <Main />
           </Route>

@@ -12,7 +12,7 @@ export default function Header(props) {
       <div className="user-label">username{currentUser}</div>
       <button className="logout-button" onClick={handleLogout}>Logout</button>
       <ul className="header-links">
-        <li><Link to='/company'>Companies</Link></li>|
+        <li><Link to='/companies'>Companies</Link></li>|
         <li><Link to='/jobs'>Jobs</Link></li>|
         <li><Link to='/activities'>Activity</Link></li>
       </ul>

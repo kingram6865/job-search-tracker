@@ -9,7 +9,7 @@ class ActivityLogsController < ApplicationController
   end
 
   def show 
-    render json: @activity_log
+    render json: @activity_log, include: :job
   end
 
   def create

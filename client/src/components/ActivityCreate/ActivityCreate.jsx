@@ -9,6 +9,8 @@ export default function ActivityCreate(props) {
     userID: 1
   })
 
+  
+
   function handleChange(e) {
    const { name, value } = e.target
    setFormData(...formData, { [name]: value })
@@ -17,6 +19,8 @@ export default function ActivityCreate(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
+
+
     console.log(formData)
   }
 
@@ -38,6 +42,7 @@ export default function ActivityCreate(props) {
         <label>Related Job
           <select name="jobID" type="text" onChange={handleChange} value={formData.jobID}/>
         </label>
+        <button>Create</button>
       </form>
     </div>
   )
