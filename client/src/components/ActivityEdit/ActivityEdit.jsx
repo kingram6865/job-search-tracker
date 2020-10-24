@@ -10,18 +10,25 @@ export default function ActivityEdit(props) {
   useEffect(() => {
     const fetchActivity = async () => {
       const activityData = await getOneActivity(id)
+      console.log(activityData)
       setActivity(activityData)
     }
 
     const fetchJobs = async () => {
       const jobData = await getAllJobs()
-      setJobs(jobData.filter((item) => item.job_id === id))
+      // setJobs(jobData.filter((item) => item.job_id === activity.job_id))
+      console.log(jobData)
+      setJobs(jobData)
     }
 
     fetchActivity()
     fetchJobs()
 
-  }, [id, getAllJobs,getOneActivity])
+  }, [id, getAllJobs, getOneActivity])
+
+  // useEffect(() => {
+  //   setJobs(jobs.filter((item) => item.id === activity.job_id ))
+  // }, [jobs, activity])
 
 
   const handleSubmit = (e) => {
@@ -42,9 +49,8 @@ export default function ActivityEdit(props) {
         <label>Job:
           <select name="jobs">
             {
-              jobs && 
-              jobs.map((item) => (<option key={item.id} value={item.id}>{item.job_name}</option>))
-
+              jobs && activity &&
+              jobs.filter((item) => item.id === activity.job_id).map((opt) => (<option key={opt.id} value={opt.id}>{opt.job_name}</option>))
             }
           </select>
         </label>
