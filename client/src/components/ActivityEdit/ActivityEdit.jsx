@@ -2,14 +2,26 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 export default function ActivityEdit(props) {
-  const { putActivity, destroyActivity } = props
-  const { getOneActivity } = props
+  const { getOneActivity, putActivity, destroyActivity, getAllJobs } = props
   const { id } = useParams()
   const [activity, setActivity] = useState(null)
+  const [jobs, setJobs] = useState([])
 
   useEffect(() => {
+    const fetchActivity = async () => {
+      const activityData = await getOneActivity(id)
+      setActivity(activityData)
+    }
 
-  }, [])
+    const fetchJobs = async () => {
+      const jobData = await getAllJobs()
+      setJobs(jobData.filter((item) => item.job_id === id))
+    }
+
+    fetchActivity()
+    fetchJobs()
+
+  }, [id, getAllJobs,getOneActivity])
 
 
   const handleSubmit = (e) => {
@@ -27,17 +39,31 @@ export default function ActivityEdit(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>Action:
-        <input type="text" name="action" value="" onChange={handleChange} />
+        <label>Job:
+          <select name="jobs">
+            {
+              jobs && 
+              jobs.map((item) => (<option key={item.id} value={item.id}>{item.job_name}</option>))
+
+            }
+          </select>
+        </label>
+        <label>Action Taken:
+          <input type="text" name="action" value="" onChange={handleChange} />
         </label>
         <label>Status:
-        <input type="text" name="status" value="" onChange={handleChange} />
+          <input type="text" name="status" value="" onChange={handleChange} />
         </label>
         <label>Follow Up:
-        <input type="text" name="followUp" value="" onChange={handleChange} />
+          <input type="text" name="followUp" value="" onChange={handleChange} />
         </label>
-        <label><button>Update</button></label><label><button onClick>Delete</button></label>
+        <label>
+          <button>Update</button>
+        </label>
       </form>
+        <label>
+          <button onClick={() => destroyActivity(id)}>Delete</button>
+        </label>
     </div>
   )
 }

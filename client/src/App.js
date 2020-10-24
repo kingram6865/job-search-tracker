@@ -114,7 +114,11 @@ function App() {
             <ActivityDetail />
           </Route> */}
           <Route exact path='/edit/activity/:id'>
-            <ActivityEdit getOneActivity={getOneActivity}/>
+            <ActivityEdit 
+              getOneActivity={getOneActivity} 
+              getAllJobs={getAllJobs} 
+              destroyActivity={destroyActivity} 
+            />
           </Route>
            <Route exact path='/'>
             <Main currentUser={currentUser}/>

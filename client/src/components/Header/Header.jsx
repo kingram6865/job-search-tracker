@@ -9,7 +9,7 @@ export default function Header(props) {
   return (
     <div className="header-container">
       <h1><Link to='/'>Job-Search Progress-Tracker</Link></h1>
-      <div className="user-label">{currentUser && capitalize(currentUser.username)}</div>
+      <div className="user-label">{currentUser && <> {capitalize(currentUser.username)} <div>{currentUser.email}</div> </>}</div>
       {
         currentUser &&
         <button className="logout-button" onClick={handleLogout}>Logout</button>
