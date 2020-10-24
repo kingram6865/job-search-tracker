@@ -15,6 +15,7 @@ export default function ActivityCreate(props) {
   function handleChange(e) {
    const { name, value } = e.target
    setFormData({...formData, [name]: value})
+   console.log(formData)
   }
 
   useEffect(() => {
@@ -32,6 +33,7 @@ export default function ActivityCreate(props) {
     e.preventDefault()
     !e.target['job_id'] ? alert("Assign this action to a job") : postActivity(formData)
     // postActivity(formData)
+    console.log(formData)
   }
 
   return (

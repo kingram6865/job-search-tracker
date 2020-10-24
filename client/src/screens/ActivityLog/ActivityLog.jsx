@@ -4,39 +4,20 @@ import './ActivityLog.css'
 
 export default function ActivityLog(props) {
   const [activity, setActivity] = useState(null)
-  const { getAllActivities } = props
+  const { getAllActivities, currentUser } = props
   const history = useHistory()
-
-/**
- *   Line 18:6:  React Hook useEffect has a missing dependency: 'fetchActivities'. 
- *   Either include it or remove the dependency array  react-hooks/exhaustive-deps
- * 
-    const fetchActivities = async () => {
-      const activityData = await getAllActivities()
-      setActivity(activityData)
-    }
- */
-
-  
-  /**
-   *   Line 16:9:  The 'fetchActivities' function makes the dependencies of 
-   *   useEffect Hook (at line 23) change on every render. Move it inside the 
-   *   useEffect callback. Alternatively, wrap the 'fetchActivities' definition 
-   *   into its own useCallback() Hook  react-hooks/exhaustive-deps
-   * 
-        useEffect(() => {
-          fetchActivities()
-        }, [getAllActivities, fetchActivities])
-   */
-  
 
   useEffect(() => {
     const fetchActivities = async () => {
       const activityData = await getAllActivities()
+      console.log(`Activity data returned is ${activityData.length} items long`)
       setActivity(activityData)
     }
-    fetchActivities()
-  }, [getAllActivities])
+    
+    if (currentUser) {
+      fetchActivities()
+    }
+  }, [currentUser, getAllActivities])
 
   return (
     <div className="activity-log-screen">

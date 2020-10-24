@@ -87,6 +87,7 @@ function App() {
           </Route>
           <Route exact path='/jobs'>
             <JobList 
+              currentUser={currentUser}
               getAllJobs={getAllJobs}
               getOneJob={getOneJob}
               postJob={postJob}
@@ -96,6 +97,7 @@ function App() {
           </Route>
           <Route path='/activities'>
             <ActivityLog
+              currentUser={currentUser}
               getAllJobs={getAllJobs} 
               getAllActivities={getAllActivities}
               getOneActivity={getOneActivity}
@@ -115,9 +117,11 @@ function App() {
           </Route> */}
           <Route exact path='/edit/activity/:id'>
             <ActivityEdit 
+              currentUser={currentUser}
               getOneActivity={getOneActivity} 
               getAllJobs={getAllJobs} 
-              destroyActivity={destroyActivity} 
+              destroyActivity={destroyActivity}
+              putActivity={putActivity} 
             />
           </Route>
            <Route exact path='/'>

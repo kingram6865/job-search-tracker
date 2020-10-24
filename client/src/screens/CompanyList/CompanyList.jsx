@@ -7,7 +7,6 @@ import { Link, useHistory } from 'react-router-dom'
 export default function CompanyList(props) {
   const {getAllCompanies, currentUser} = props
   const [companies, setCompanies] = useState([])
-  const [user, setUser] = useState(null)
   const history = useHistory()
 
   const displayData = (currentUser ?
@@ -15,7 +14,7 @@ export default function CompanyList(props) {
       <>   
       <h3>Company List</h3>
         <ul className="companies-list">
-          {companies.map(item => (<li key={item.id}><Link to={`/companies/${item.id}`}>{item.company_name}</Link></li>))}
+          {companies.map((item, index) => (<li key={index}><Link to={`/companies/${item.id}`}>{item.company_name}</Link></li>))}
         </ul>
         <button onClick={() => history.push('/add/company')} className="action-button">Add A Company</button>
       </>
@@ -28,19 +27,14 @@ export default function CompanyList(props) {
   )
 
   useEffect(() => {
-    setUser(currentUser)
-    return () => { 
-      setUser(null)
-    }
-  }, [user, currentUser])
-
-  useEffect(() => {
     const fetchCompanies = async () => {
       const companyData = await getAllCompanies()
       setCompanies(companyData)
     }
-    fetchCompanies()
-  },[getAllCompanies])
+    if (currentUser) {
+      fetchCompanies()
+    }
+  },[currentUser, getAllCompanies])
 
   return (
     <div className="company-list-screen">

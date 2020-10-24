@@ -1,9 +1,9 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :update, :destroy]
-  before_action :authorize_request, only: [:show, :create, :update, :destroy] 
+  before_action :authorize_request
 
   def index
-    @jobs = Job.all
+    @jobs = @current_user.jobs.group(:id)
 
     render json: @jobs, include: [:activity_logs, :company]
   end

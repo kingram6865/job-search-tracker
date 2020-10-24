@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 export default function ActivityEdit(props) {
-  const { getOneActivity, putActivity, destroyActivity, getAllJobs } = props
+  const { getOneActivity, putActivity, destroyActivity, getAllJobs, currentUser } = props
   const { id } = useParams()
   const [activity, setActivity] = useState(null)
   const [jobs, setJobs] = useState([])
@@ -10,7 +10,7 @@ export default function ActivityEdit(props) {
   useEffect(() => {
     const fetchActivity = async () => {
       const activityData = await getOneActivity(id)
-      console.log(activityData)
+      // console.log(activityData)
       setActivity(activityData)
     }
 
@@ -21,10 +21,12 @@ export default function ActivityEdit(props) {
       setJobs(jobData)
     }
 
-    fetchActivity()
-    fetchJobs()
+    if (currentUser){
+      fetchActivity()
+      fetchJobs()
+    }
 
-  }, [id, getAllJobs, getOneActivity])
+  }, [id, getAllJobs, getOneActivity, currentUser])
 
   // useEffect(() => {
   //   setJobs(jobs.filter((item) => item.id === activity.job_id ))
@@ -34,7 +36,7 @@ export default function ActivityEdit(props) {
   const handleSubmit = (e) => {
     e.preventDefault()
     putActivity(id, activity)
-    console.log(activity)
+    // console.log(activity)
   }
   
   const handleChange = (e) => {
@@ -50,8 +52,8 @@ export default function ActivityEdit(props) {
           <label name="jobs">
             {
               jobs && activity &&
-              jobs.filter((item) => item.id === activity.job_id).map((opt) => (
-                <React.Fragment key={opt.id}>
+              jobs.filter((item) => item.id === activity.job_id).map((opt, index) => (
+                <React.Fragment key={index}>
                 <span  value={opt.id}>{opt.job_name}</span>
                 <input  readOnly text="number" value={opt.id} />
                 </React.Fragment>

@@ -1,9 +1,9 @@
 class ActivityLogsController < ApplicationController
   before_action :set_activity, only: [:show, :update, :destroy]
-  before_action :authorize_request, only: [:show, :create, :update, :destroy]
+  before_action :authorize_request
 
   def index
-    @activities = ActivityLog.all
+    @activities = @current_user.activity_logs
 
     render json: @activities, include: [:job, :user]
   end
