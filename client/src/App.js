@@ -16,7 +16,7 @@ import ActivityEdit from './components/ActivityEdit/ActivityEdit'
 import JobDetail from './components/JobDetail/JobDetail'
 import CompanyCreate from './components/CompanyCreate/CompanyCreate'
 import ActivityCreate from './components/ActivityCreate/ActivityCreate'
-// import JobCreate from './components/JobCreate/JobCreate'
+import JobCreate from './components/JobCreate/JobCreate'
 import CompanyEdit from './components/CompanyEdit/CompanyEdit'
 
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
@@ -33,7 +33,6 @@ function App() {
   useEffect(() => {
     const handleVerify = async () => {
       const userData = await verifyUser()
-
       setCurrentUser(userData)
     }
     handleVerify()
@@ -96,7 +95,8 @@ function App() {
             />
           </Route>
           <Route path='/activities'>
-            <ActivityLog 
+            <ActivityLog
+              getAllJobs={getAllJobs} 
               getAllActivities={getAllActivities}
               getOneActivity={getOneActivity}
               postActivity={postActivity}
@@ -129,8 +129,12 @@ function App() {
             <CompanyCreate postCompany={postCompany} />
           </Route>
 
+          <Route path='/add/job'>
+            <JobCreate postJob={postJob} />
+          </Route>
+
           <Route path='/add/activity'>
-            <ActivityCreate postActivity={postActivity} />
+            <ActivityCreate postActivity={postActivity} getAllJobs={getAllJobs} />
           </Route>
 
         </Switch>

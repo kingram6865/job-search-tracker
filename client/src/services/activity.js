@@ -13,7 +13,6 @@ export const getOneActivity = async (id) => {
 
 export const postActivity = async (activityData) => {
   const resp = await api.post('/activity_logs', { activity_log: activityData })
-
   return resp.data
 }
 

@@ -5,6 +5,14 @@ import { capitalize } from '../../services/helpers'
 
 export default function Header(props) {
   const { currentUser, handleLogout } = props
+  /**
+   * Create a displayData variable that will use a ternary to decide
+   * what to display.
+   * 
+   * When an unauthenticate user navigates to the url, they should see only 
+   * the login/register buttons. Otherwise it should display the Companies | Jobs | Activity Log links.
+   * 
+   */
 
   return (
     <div className="header-container">

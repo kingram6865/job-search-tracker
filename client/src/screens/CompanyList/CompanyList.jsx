@@ -10,21 +10,28 @@ export default function CompanyList(props) {
   const [user, setUser] = useState(null)
   const history = useHistory()
 
-  // const displayData = (currentUser ?
-  //   (     
-  //     <h3>Company List</h3>
-  //       <ul className="companies-list">
-  //         {companies.map(item => (<li key={item.id}><Link to={`/companies/${item.id}`}>{item.company_name}</Link></li>))}
-  //       </ul>
-  //       <Link to='/add/company' className="action-button">Add A Company</Link>
-  //   )
-  // :
-  //   <p>Login/Register</p>
-  // )
+  const displayData = (currentUser ?
+    (  
+      <>   
+      <h3>Company List</h3>
+        <ul className="companies-list">
+          {companies.map(item => (<li key={item.id}><Link to={`/companies/${item.id}`}>{item.company_name}</Link></li>))}
+        </ul>
+        <button onClick={() => history.push('/add/company')} className="action-button">Add A Company</button>
+      </>
+    )
+  :
+    <>
+      <button onClick={() => history.push('/login')}>Login</button>
+      <button onClick={() => history.push('/register')}>Register</button>
+    </>
+  )
 
   useEffect(() => {
     setUser(currentUser)
-    // console.log(user)
+    return () => { 
+      setUser(null)
+    }
   }, [user, currentUser])
 
   useEffect(() => {
@@ -37,16 +44,7 @@ export default function CompanyList(props) {
 
   return (
     <div className="company-list-screen">
-      <h3>Company List</h3>
-      {
-        companies && 
-        <>
-        <ul className="companies-list">
-          {companies.map(item => (<li key={item.id}><Link to={`/companies/${item.id}`}>{item.company_name}</Link></li>))}
-        </ul>
-        <button onClick={() => history.push('/add/company')} className="action-button">Add A Company</button>
-        </>
-      }
+      {displayData}
     </div>
   )
 }

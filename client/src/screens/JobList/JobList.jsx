@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 export default function JobList(props) {
   const { getAllJobs } = props
   const [jobs, setJobs] = useState()
+  const history = useHistory()
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -22,7 +23,7 @@ export default function JobList(props) {
           <ul className="detail-list">
             {jobs.map(item => (<li key={item.id}><Link to={`/jobs/${item.id}`}>{item.job_name}</Link></li>))}
           </ul>
-          <button onClick={() => alert('Add a Job')}>Add A Job</button>
+          <button onClick={() => history.push('/add/job')}>Add A Job</button>
         </>
       }
     </div>

@@ -14,7 +14,11 @@ export default function CompanyCreate(props) {
 
     const handleSubmit = (e) => {
     e.preventDefault()
-    postCompany(formData)
+    const results = async () => {
+      const result = await postCompany(formData)
+      return result
+    }
+    console.log(results())
     setFormData({  company_name: "", industry: "", general_rating: "0", external_recruiter: "f"})
     history.push('/add/company')
   }
@@ -36,16 +40,17 @@ export default function CompanyCreate(props) {
             <input type="text" name="industry" onChange={handleChange} value={formData.industry} />
           </label>
 
-          <label>Company Rating:
+          <label>Company Culture Rating:
             <input type="number" min="0" max="5" name="general_rating" onChange={handleChange} value={formData.general_rating} />
           </label>
 
           <label> External Recruiter?
             <input type="checkbox" name="external_recruiter" onChange={handleChange} value={formData.external_recruiter} />
           </label>
-          <button>Save</button>
+          <label><button>Save</button><button onClick={() => history.push('/add/company')}>Add Another Company</button></label>
+          
         </form>
-        <Link to='/companies'>Back</Link><button onClick={() => history.push('/add/company')}>Add Another Company</button>
+        <Link to='/companies'>Back</Link>
     </div>
   )
 }

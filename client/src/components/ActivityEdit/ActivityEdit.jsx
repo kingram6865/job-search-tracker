@@ -47,12 +47,17 @@ export default function ActivityEdit(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <label>Job:
-          <select name="jobs">
+          <label name="jobs">
             {
               jobs && activity &&
-              jobs.filter((item) => item.id === activity.job_id).map((opt) => (<option key={opt.id} value={opt.id}>{opt.job_name}</option>))
+              jobs.filter((item) => item.id === activity.job_id).map((opt) => (
+                <React.Fragment key={opt.id}>
+                <span  value={opt.id}>{opt.job_name}</span>
+                <input  readOnly text="number" value={opt.id} />
+                </React.Fragment>
+                ))
             }
-          </select>
+          </label>
         </label>
         <label>Action Taken:
           <input type="text" name="action" value="" onChange={handleChange} />
@@ -61,7 +66,7 @@ export default function ActivityEdit(props) {
           <input type="text" name="status" value="" onChange={handleChange} />
         </label>
         <label>Follow Up:
-          <input type="text" name="followUp" value="" onChange={handleChange} />
+          <input type="text" name="follow_up" value="" onChange={handleChange} />
         </label>
         <label>
           <button>Update</button>
