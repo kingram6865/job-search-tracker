@@ -14,6 +14,7 @@ import CompanyDetail from './components/CompanyDetail/CompanyDetail'
 import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 import JobDetail from './components/JobDetail/JobDetail'
 import CompanyCreate from './components/CompanyCreate/CompanyCreate'
+import ActivityCreate from './components/ActivityCreate/ActivityCreate'
 // import JobCreate from './components/JobCreate/JobCreate'
 import CompanyEdit from './components/CompanyEdit/CompanyEdit'
 
@@ -121,6 +122,10 @@ function App() {
 
           <Route path='/add/company'>
             <CompanyCreate postCompany={postCompany} />
+          </Route>
+
+          <Route path='/add/activity'>
+            <ActivityCreate postActivity={postActivity} />
           </Route>
 
         </Switch>

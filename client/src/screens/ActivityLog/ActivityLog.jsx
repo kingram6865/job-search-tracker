@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function ActivityLog(props) {
   const [activity, setActivity] = useState(null)
   const { getAllActivities } = props
+  const history = useHistory()
 
   useEffect(() => {
     const fetchActivities = async () => {
@@ -30,7 +32,7 @@ export default function ActivityLog(props) {
           </ul>
         </>
       }
-      <button>Add An Action</button>
+      <button onClick={() => history.push('/add/activity')}>Add An Action</button>
     </div>
   )
 }
