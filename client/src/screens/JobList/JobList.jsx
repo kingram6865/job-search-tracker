@@ -22,6 +22,7 @@ export default function JobList(props) {
           <ul className="detail-list">
             {jobs.map(item => (<li key={item.id}><Link to={`/jobs/${item.id}`}>{item.job_name}</Link></li>))}
           </ul>
+          <button onClick={() => alert('Add a Job')}>Add A Job</button>
         </>
       }
     </div>

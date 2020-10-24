@@ -105,10 +105,13 @@ function App() {
             <CompanyDetail />
           </Route>
           <Route exact path='/jobs/:id'>
-            <JobDetail />
+            <JobDetail getOneJob={getOneJob} />
           </Route>
-          <Route exact path='/activity_log/:id'>
+          {/* <Route exact path={`/activity_log/:${currentUser.id}`}>
             <ActivityDetail />
+          </Route> */}
+          <Route exact path='/activities/:id'>
+            <ActivityDetail getOneActivity={getOneActivity}/>
           </Route>
            <Route exact path='/'>
             <Main />

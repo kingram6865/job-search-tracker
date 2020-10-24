@@ -20,10 +20,18 @@ export default function ActivityLog(props) {
         activity &&
         <>
           <ul className="detail-list">
-            {activity.map(item => (<li key={item.id}><Link to={`/activity_log/${item.id}`}>{item.action}</Link></li>))}
+            {activity.map(item => (
+              <li 
+                key={item.id}>
+                <span className="action">{item.action}</span>|
+                <span>{item.status}</span>|
+                <span>{item.follow_up}</span>
+                <button>Edit</button><button>Delete</button>
+              </li>))}
           </ul>
         </>
       }
+      <button>Add An Action</button>
     </div>
   )
 }
