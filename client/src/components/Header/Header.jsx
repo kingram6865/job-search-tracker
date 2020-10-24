@@ -1,6 +1,7 @@
 import React from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
+import { capitalize } from '../../services/helpers'
 
 export default function Header(props) {
   const { currentUser, handleLogout } = props
@@ -8,9 +9,11 @@ export default function Header(props) {
   return (
     <div className="header-container">
       <h1><Link to='/'>Job-Search Progress-Tracker</Link></h1>
-      {/* <span className="user-label">{currentUser}</span> */}
-      <div className="user-label">{currentUser && currentUser.username}</div>
-      <button className="logout-button" onClick={handleLogout}>Logout</button>
+      <div className="user-label">{currentUser && capitalize(currentUser.username)}</div>
+      {
+        currentUser &&
+        <button className="logout-button" onClick={handleLogout}>Logout</button>
+      }
       <ul className="header-links">
         <li><Link to='/companies'>Companies</Link></li>|
         <li><Link to='/jobs'>Jobs</Link></li>|

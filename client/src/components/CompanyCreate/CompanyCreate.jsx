@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 export default function CompanyCreate(props) {
   const [formData, setFormData] = useState({
@@ -12,10 +12,11 @@ export default function CompanyCreate(props) {
   const history = useHistory()
   const { postCompany } = props
 
-  const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
     e.preventDefault()
     postCompany(formData)
-    history.push('/companies')
+    setFormData({  company_name: "", industry: "", general_rating: "0", external_recruiter: "f"})
+    history.push('/add/company')
   }
 
   const handleChange = (e) => {
@@ -44,6 +45,7 @@ export default function CompanyCreate(props) {
           </label>
           <button>Save</button>
         </form>
+        <Link to='/companies'>Back</Link><button onClick={() => history.push('/add/company')}>Add Another Company</button>
     </div>
   )
 }

@@ -76,6 +76,7 @@ function App() {
           </Route>
           <Route exact path='/companies'>
             <CompanyList 
+              currentUser={currentUser}
               getAllCompanies={getAllCompanies}
               getOneCompany={getOneCompany}
               postCompany={postCompany}
@@ -114,7 +115,7 @@ function App() {
             <ActivityDetail getOneActivity={getOneActivity}/>
           </Route>
            <Route exact path='/'>
-            <Main />
+            <Main currentUser={currentUser}/>
           </Route>
           <Route exact path='/companies/:id/edit' render={(props) => <CompanyEdit putCompany={putCompany} getOneCompany={getOneCompany} />} />
 
