@@ -17,11 +17,16 @@ export default function Login(props) {
       <form onSubmit={(e) => {
         e.preventDefault()
         handleLogin(formData)
-        alert(JSON.stringify(formData))
         }}>
+        <label>Username: 
         <input type="text" name="username" value={formData.username} onChange={handleChange}/>
+        </label>
+        <label>Password: 
         <input type="password" name="password" value={formData.password} onChange={handleChange}/>
+        </label>
+        <label>
         <button>Login</button>
+        </label>
       </form>
     </div>
   )

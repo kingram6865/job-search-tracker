@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Register.css'
 
 export default function Register(props) {
   const { handleRegister } = props
@@ -31,6 +32,7 @@ export default function Register(props) {
 
         <button>Create Account</button>
       </form>
+      
     </div>
   )
 }

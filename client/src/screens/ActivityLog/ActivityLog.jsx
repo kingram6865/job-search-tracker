@@ -27,7 +27,7 @@ export default function ActivityLog(props) {
                 <span className="action">{item.action}</span>|
                 <span>{item.status}</span>|
                 <span>{item.follow_up}</span>
-                <button>Edit</button><button>Delete</button>
+                <button onClick={() => history.push(`/edit/activity/${item.id}`)}>Edit</button><button onClick={() => alert(`This will delete activity record ${item.id}`)}>Delete</button>
               </li>))}
           </ul>
         </>

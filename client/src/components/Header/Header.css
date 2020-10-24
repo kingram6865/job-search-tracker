@@ -6,6 +6,8 @@ h1 {
   font-weight: bold;
   font-size: large;
   padding: 0 0 5px 0;
+  color: white;
+  -webkit-text-stroke: .5px #1768ac;
 }
 
 .header-container {

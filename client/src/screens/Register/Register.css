@@ -1,0 +1,13 @@
+.registration-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form.button {
+  flex: 1 1 20em;
+}

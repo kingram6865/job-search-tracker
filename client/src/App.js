@@ -11,7 +11,8 @@ import JobList from './screens/JobList/JobList'
 import ActivityLog from './screens/ActivityLog/ActivityLog'
 
 import CompanyDetail from './components/CompanyDetail/CompanyDetail'
-import ActivityDetail from './components/ActivityDetail/ActivityDetail'
+// import ActivityDetail from './components/ActivityDetail/ActivityDetail'
+import ActivityEdit from './components/ActivityEdit/ActivityEdit'
 import JobDetail from './components/JobDetail/JobDetail'
 import CompanyCreate from './components/CompanyCreate/CompanyCreate'
 import ActivityCreate from './components/ActivityCreate/ActivityCreate'
@@ -112,8 +113,8 @@ function App() {
           {/* <Route exact path={`/activity_log/:${currentUser.id}`}>
             <ActivityDetail />
           </Route> */}
-          <Route exact path='/activities/:id'>
-            <ActivityDetail getOneActivity={getOneActivity}/>
+          <Route exact path='/edit/activity/:id'>
+            <ActivityEdit getOneActivity={getOneActivity}/>
           </Route>
            <Route exact path='/'>
             <Main currentUser={currentUser}/>
