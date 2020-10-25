@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 export default function ActivityEdit(props) {
-  const { getOneActivity, putActivity, destroyActivity, getAllJobs, currentUser } = props
+  const { getOneActivity, putActivity, destroyActivity, currentUser } = props
   const { id } = useParams()
   const [activity, setActivity] = useState(null)
-  const [jobs, setJobs] = useState([])
+  const history = useHistory()
 
   useEffect(() => {
     const fetchActivity = async () => {
@@ -14,20 +14,15 @@ export default function ActivityEdit(props) {
       setActivity(activityData)
     }
 
-    const fetchJobs = async () => {
-      const jobData = await getAllJobs()
-      setJobs(jobData)
-    }
-
     if (currentUser){
       fetchActivity()
-      fetchJobs()
     }
-  }, [id, getAllJobs, getOneActivity, currentUser])
+  }, [id, getOneActivity, currentUser])
 
   const handleSubmit = (e) => {
     e.preventDefault()
     putActivity(id, activity)
+    history.push('/activities')
   }
   
   const handleChange = (e) => {
@@ -37,7 +32,7 @@ export default function ActivityEdit(props) {
 
   return (
     <div>
-{
+    {
       activity &&
       <>
       <h3>Record Action taken on {activity.job['job_name']} Position</h3>
@@ -71,7 +66,7 @@ export default function ActivityEdit(props) {
           <button onClick={() => destroyActivity(id)}>Delete</button>
         </label>
         </>
-}
+      }
     </div>
   )
 }

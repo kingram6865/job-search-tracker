@@ -1,23 +1,63 @@
 /* CSV */
-03256c,2541b2,1768ac,06bee1,ffffff
+03256c,2541b2,1768ac,3d79fa,06bee1,acc6fd,ffffff
 
 /* Array */
-["03256c","2541b2","1768ac","06bee1","ffffff"]
+["03256c","2541b2","1768ac","3d79fa","06bee1","acc6fd","ffffff"]
 
 /* Object */
-{"Royal Blue Dark":"03256c","Denim Blue":"2541b2","Sapphire Blue":"1768ac","Vivid Sky Blue":"06bee1","White":"ffffff"}
+{"Royal Blue Dark":"03256c","Denim Blue":"2541b2","Sapphire Blue":"1768ac","Blue Crayola":"3d79fa","Vivid Sky Blue":"06bee1","Baby Blue Eyes":"acc6fd","White":"ffffff"}
 
 /* Extended Array */
-[
-  {"name":"Royal Blue Dark","hex":"03256c","rgb":[3,37,108],"cmyk":[97,66,0,58],"hsb":[221,97,42],"hsl":[221,95,22],"lab":[18,20,-44]},
-  {"name":"Denim Blue","hex":"2541b2","rgb":[37,65,178],"cmyk":[79,63,0,30],"hsb":[228,79,70],"hsl":[228,66,42],"lab":[33,32,-63]},
-  {"name":"Sapphire Blue","hex":"1768ac","rgb":[23,104,172],"cmyk":[87,40,0,33],"hsb":[207,87,67],"hsl":[207,76,38],"lab":[43,2,-43]},
-  {"name":"Vivid Sky Blue","hex":"06bee1","rgb":[6,190,225],"cmyk":[97,16,0,12],"hsb":[190,97,88],"hsl":[190,95,45],"lab":[71,-27,-29]},
-  {"name":"White","hex":"ffffff","rgb":[255,255,255],"cmyk":[0,0,0,0],"hsb":[0,0,100],"hsl":[0,0,100],"lab":[100,0,0]}
-]
+[{"name":"Royal Blue Dark","hex":"03256c","rgb":[3,37,108],"cmyk":[97,66,0,58],
+"hsb":[221,97,42],"hsl":[221,95,22],"lab":[18,20,-44]},
+{"name":"Denim Blue","hex":"2541b2","rgb":[37,65,178],"cmyk":[79,63,0,30],
+"hsb":[228,79,70],"hsl":[228,66,42],"lab":[33,32,-63]},
+{"name":"Sapphire Blue","hex":"1768ac","rgb":[23,104,172],"cmyk":[87,40,0,33],"hsb":[207,87,67],"hsl":[207,76,38],"lab":[43,2,-43]},{"name":"Blue Crayola","hex":"3d79fa","rgb":[61,121,250],"cmyk":[76,52,0,2],"hsb":[221,76,98],"hsl":[221,95,61],"lab":[54,25,-70]},{"name":"Vivid Sky Blue","hex":"06bee1","rgb":[6,190,225],"cmyk":[97,16,0,12],"hsb":[190,97,88],"hsl":[190,95,45],"lab":[71,-27,-29]},{"name":"Baby Blue Eyes","hex":"acc6fd","rgb":[172,198,253],"cmyk":[32,22,0,1],"hsb":[221,32,99],"hsl":[221,95,83],"lab":[80,4,-30]},{"name":"White","hex":"ffffff","rgb":[255,255,255],"cmyk":[0,0,0,0],"hsb":[0,0,100],"hsl":[0,0,100],"lab":[100,0,0]}]
 
 /* Icons */
 
 https://icongr.am/octicons/sign-in.svg?size=128&color=currentColor
 https://icongr.am/octicons/sign-out.svg?size=128&color=currentColor
 
+Pencil Ready
+https://icongr.am/jam/pencil-f.svg?size=128&color=currentColor
+
+Pencil Hover
+https://icongr.am/jam/pencil.svg?size=120&color=currentColor
+
+Delete Ready
+https://icongr.am/jam/delete-f.svg?size=128&color=0d3fd3
+
+Delete Hover
+https://icongr.am/jam/delete.svg?size=120&color=ffffff
+
+Close circle
+https://icongr.am/jam/close-circle-f.svg?size=128&color=ffffff
+
+Close Circle Hover
+https://icongr.am/jam/close-circle.svg?size=128&color=ffffff
+
+Close Square
+https://icongr.am/jam/close-rectangle-f.svg?size=128&color=ffffff
+
+Close Square Hover
+https://icongr.am/jam/close-rectangle.svg?size=128&color=ffffff
+
+Close
+https://icongr.am/jam/close.svg?size=128&color=ffffff
+
+==============================
+Window Close Solid
+<i class="fas fa-window-close"></i>
+
+Window Close
+<i class="far fa-window-close"></i>
+
+Pencil Regular
+<i class="far fa-edit"></i>
+
+Pencil Solid
+<i class="fas fa-edit"></i>
+
+Arrow Circle Left
+<i class="fas fa-arrow-circle-left"></i>

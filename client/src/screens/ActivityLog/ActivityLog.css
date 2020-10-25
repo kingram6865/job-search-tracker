@@ -17,3 +17,15 @@
 .delete {
   margin: 0 10px 0 0;
 }
+
+i.fa-edit:hover:before {
+  color: #1768ac;
+  font-weight: bold;
+  font-size: small;
+}
+
+i.fa-window-close:hover:before {
+  color: red;
+  font-size: small;
+}
+

@@ -17,6 +17,7 @@ import JobDetail from './components/JobDetail/JobDetail'
 import CompanyCreate from './components/CompanyCreate/CompanyCreate'
 import ActivityCreate from './components/ActivityCreate/ActivityCreate'
 import JobCreate from './components/JobCreate/JobCreate'
+import JobEdit from './components/JobEdit/JobEdit'
 import CompanyEdit from './components/CompanyEdit/CompanyEdit'
 
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
@@ -128,8 +129,16 @@ function App() {
            <Route exact path='/'>
             <Main currentUser={currentUser}/>
           </Route>
-          <Route exact path='/companies/:id/edit' render={(props) => <CompanyEdit putCompany={putCompany} getOneCompany={getOneCompany} />} />
+          <Route exact path='/companies/:id/edit' render={
+            (props) => <CompanyEdit currentUser={currentUser} putCompany={putCompany} getOneCompany={getOneCompany} />} />
 
+          <Route exact path='/jobs/:id/edit'>
+            <JobEdit 
+              currentUser={currentUser}
+              getOneJob={getOneJob}
+              putJob={putJob}
+            />
+          </Route>
           <Route path='/add/company'>
             <CompanyCreate postCompany={postCompany} />
           </Route>

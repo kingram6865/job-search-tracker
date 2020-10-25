@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { verifyUser } from '../../services/auth'
 
 export default function JobItem(props) {
   const { getOneJob } = props
   const { id } = useParams()
   const [job, setJob] = useState(null)
+  const history = useHistory()
 
   useEffect(() => {
     verifyUser()
@@ -26,8 +27,12 @@ export default function JobItem(props) {
           <p>{job.job_details}</p>
         </>
       }
-      <Link to='/jobs'>Back</Link>
-      <button>Edit</button><button>Delete</button>
+      {/* <Link to='/jobs'>Back</Link> */}
+      <i className="fas fa-arrow-circle-left" onClick={() => history.push('/jobs')}></i>
+      <i className="fas fa-edit" onClick={() => history.push(`/jobs/${id}/edit`)}></i>
+      <i className="fas fa-window-close" onClick={() => alert("Delete this item")}></i>
+      {/* <button>Edit</button> */}
+      {/* <button>Delete</button> */}
     </div>
   )
 }
