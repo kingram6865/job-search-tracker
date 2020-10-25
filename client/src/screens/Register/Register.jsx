@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import './Register.css'
 
 export default function Register(props) {
-  const { handleRegister } = props
+  const { handleRegister, handleLogin } = props
   const [formData, setFormData] = useState({
     username:'',
     email: '',
     password: ''
   })
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -17,7 +19,11 @@ export default function Register(props) {
   return (
     <div className="registration-screen">
       <h3>Create an Account</h3>
-      <form onSubmit={handleRegister}>
+      <form onSubmit={(e) =>{
+        e.preventDefault()
+        handleRegister(formData)
+        handleLogin({username: formData.username, password: formData.password})
+        }}>
         <label>Username:
           <input name="username" type="text" value={formData.username} onChange={handleChange} />
         </label>
@@ -30,7 +36,7 @@ export default function Register(props) {
           <input name="password" type="password" value={formData.password} onChange={handleChange} />
         </label>
 
-        <button>Create Account</button>
+        <label><button>Create Account</button></label>
       </form>
       
     </div>

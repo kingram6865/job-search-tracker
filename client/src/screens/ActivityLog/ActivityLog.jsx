@@ -10,10 +10,9 @@ export default function ActivityLog(props) {
   useEffect(() => {
     const fetchActivities = async () => {
       const activityData = await getAllActivities()
-      console.log(`Activity data returned is ${activityData.length} items long`)
       setActivity(activityData)
     }
-    
+
     if (currentUser) {
       fetchActivities()
     }
@@ -24,14 +23,13 @@ export default function ActivityLog(props) {
       <h3>Activity Log</h3>
       <table className="detail-list">
       <tbody>
-        <tr><th>Action Taken</th><th>Action Status</th><th>Action Follow-Up</th></tr>
+        <tr><th>Action Taken</th><th>Action Status</th><th>Action Follow-Up</th><th></th><th></th></tr>
       {
         activity &&
         <>
           {activity.map(item => (
             <tr 
               key={item.id}>
-              <td><span> {}</span></td>
               <td><span className="action">{item.action}</span></td>
               <td><span className="status">{item.status}</span></td>
               <td><span className="follow-up">{item.follow_up}</span></td>

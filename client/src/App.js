@@ -71,6 +71,7 @@ function App() {
           </Route>
           <Route exact path='/register'>
             <Register 
+              handleLogin={handleLogin}
               handleRegister={handleRegister}
               currentUser={currentUser}
               />

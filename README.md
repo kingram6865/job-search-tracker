@@ -142,17 +142,22 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Header              |    M     |     1 hrs      |    TBD        |   TBD       |
-| Navigation          |    M     |     1 hrs      |    TBD        |   TBD       |
-| Footer              |    M     |     1 hrs      |    TBD        |   TBD       |
-| Main Screen         |    M     |     2 hrs      |    TBD        |   TBD       |
-| Activity Screen     |    M     |     2 hrs      |    TBD        |   TBD       |
-| Company Screen      |    M     |     2 hrs      |    TBD        |   TBD       |
-| Job Screen          |    M     |     2 hrs      |    TBD        |   TBD       |
-| Add Company Form    |    M     |     3 hrs      |    TBD        |   TBD       |
-| Add Job Form        |    M     |     3 hrs      |    TBD        |   TBD       |
-| Add Activity Form   |    M     |     3 hrs      |    TBD        |   TBD       |
-| Create CRUD Actions |    H     |     4 hrs      |    TBD        |   TBD       |
+| Header              |    M     |     1 hrs      |    2 hrs      |   TBD       |
+| Navigation          |    M     |     1 hrs      |    1 hr       |   TBD       |
+| Footer              |    M     |     1 hrs      |    < 1hr      |   TBD       |
+| Main Screen         |    M     |     2 hrs      |    < 1hr      |   TBD       |
+| Activity Screen     |    M     |     2 hrs      |    6 hrs      |   TBD       |
+| Company Screen      |    M     |     2 hrs      |    3 hrs      |   TBD       |
+| Job Screen          |    M     |     2 hrs      |    4 hrs      |   TBD       |
+| Add Company Form    |    M     |     3 hrs      |    2 hrs      |   TBD       |
+| Add Job Form        |    M     |     3 hrs      |    1.5 hrs    |   TBD       |
+| Add Activity Form   |    M     |     3 hrs      |    1 hr       |   TBD       |
+| Create CRUD Actions (Front End) |    H     |     4 hrs      |    1 hr       |   TBD       |
+| Controllers         |    H     |     3 hrs      |    2 hrs      |   2.5 hrs   |
+| Models              |    H     |     2 hrs      |    1.5 hrs    |   2 hrs     |
+| Routes              |    H     |     1 hr       |    < 1hr      |   40 min    |
+| Seed Data           |    M     |     1 hrs      |    < 1hr      |   40 min    |
+| Create CRUD Actions (Back End)|    H     |     2 hrs      |    1 hr       |   1 hr      |
 | TOTAL               |          |     6 hrs      |    TBD        |   TBD       |
 
 <br>

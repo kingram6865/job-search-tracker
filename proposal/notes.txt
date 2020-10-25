@@ -15,3 +15,9 @@
   {"name":"Vivid Sky Blue","hex":"06bee1","rgb":[6,190,225],"cmyk":[97,16,0,12],"hsb":[190,97,88],"hsl":[190,95,45],"lab":[71,-27,-29]},
   {"name":"White","hex":"ffffff","rgb":[255,255,255],"cmyk":[0,0,0,0],"hsb":[0,0,100],"hsl":[0,0,100],"lab":[100,0,0]}
 ]
+
+/* Icons */
+
+https://icongr.am/octicons/sign-in.svg?size=128&color=currentColor
+https://icongr.am/octicons/sign-out.svg?size=128&color=currentColor
+
