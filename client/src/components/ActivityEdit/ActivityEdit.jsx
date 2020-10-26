@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
+import './ActivityEdit.css'
 
 export default function ActivityEdit(props) {
   const { getOneActivity, putActivity, destroyActivity, currentUser } = props
@@ -10,7 +11,6 @@ export default function ActivityEdit(props) {
   useEffect(() => {
     const fetchActivity = async () => {
       const activityData = await getOneActivity(id)
-      console.log(activityData)
       setActivity(activityData)
     }
 

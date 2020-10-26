@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   post '/auth/login', to: 'authentication#login'
   get '/auth/verify', to: 'authentication#verify'
-
+  get '/companylist', to: 'companies#companylist'
   
   resources :users
   resources :companies

@@ -6,20 +6,19 @@ export default function CompanyCreate(props) {
     company_name: "",
     industry: "",
     general_rating: "0",
-    external_recruiter: "f"
+    external_recruiter: "f",
   })
 
   const history = useHistory()
-  const { postCompany } = props
+  const { postCompany, currentUser } = props
 
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    const results = async () => {
-      const result = await postCompany(formData)
-      return result
+    if (currentUser){
+      postCompany(formData)
+    } else {
+      alert("You need to create a login to add data.")
     }
-    console.log(results())
-    setFormData({  company_name: "", industry: "", general_rating: "0", external_recruiter: "f"})
     history.push('/add/company')
   }
 

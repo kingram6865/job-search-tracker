@@ -6,7 +6,7 @@ export default function ActivityLog(props) {
   const [activity, setActivity] = useState(null)
   const { getAllActivities, currentUser } = props
   const history = useHistory()
-
+  
   useEffect(() => {
     const fetchActivities = async () => {
       const activityData = await getAllActivities()
@@ -34,9 +34,7 @@ export default function ActivityLog(props) {
               <td><span className="status">{item.status}</span></td>
               <td><span className="follow-up">{item.follow_up}</span></td>
               <td><i className="far fa-edit" onClick={() => history.push(`/edit/activity/${item.id}`)}></i></td>
-              {/* <td><button className="edit" onClick={() => history.push(`/edit/activity/${item.id}`)}>Edit</button></td> */}
               <td><i className="fas fa-window-close" onClick={() => alert(`This will delete activity record ${item.id}`)}></i></td>
-              {/* <td><button className="delete" onClick={() => alert(`This will delete activity record ${item.id}`)}>Delete</button></td> */}
             </tr>))}
         </>
       }

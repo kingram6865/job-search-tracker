@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { verifyUser } from '../../services/auth'
 
 export default function JobItem(props) {
-  const { getOneJob } = props
+  const { getOneJob, currentUser } = props
   const { id } = useParams()
   const [job, setJob] = useState(null)
   const history = useHistory()
@@ -14,8 +14,10 @@ export default function JobItem(props) {
       const jobData = await getOneJob(id)
       setJob(jobData)
     }
-    fetchJob()
-  }, [id, getOneJob])
+    if (currentUser) {
+      fetchJob()
+    }
+  }, [id, getOneJob, currentUser])
 
   return (
     <div className="job-item">

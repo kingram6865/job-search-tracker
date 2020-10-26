@@ -5,6 +5,11 @@ export const getAllCompanies = async () => {
   return resp.data
 }
 
+export const listData = async () => {
+  const resp = await api.get('/companylist')
+  return resp.data
+}
+
 export const getOneCompany = async (id) => {
   const resp = await api.get(`/companies/${id}`)
   return resp.data
@@ -24,3 +29,4 @@ export const destroyCompany = async (id) => {
   const resp = await api.delete(`/companies/${id}`)
   return resp
 }
+

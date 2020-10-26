@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_183655) do
+ActiveRecord::Schema.define(version: 2020_10_26_002812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,11 @@ ActiveRecord::Schema.define(version: 2020_10_20_183655) do
     t.boolean "external_recruiter"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "companies_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "company_id", null: false
   end
 
   create_table "jobs", force: :cascade do |t|

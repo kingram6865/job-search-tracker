@@ -10,15 +10,16 @@ import CompanyList from './screens/CompanyList/CompanyList'
 import JobList from './screens/JobList/JobList'
 import ActivityLog from './screens/ActivityLog/ActivityLog'
 
+import CompanyCreate from './components/CompanyCreate/CompanyCreate'
 import CompanyDetail from './components/CompanyDetail/CompanyDetail'
+import CompanyEdit from './components/CompanyEdit/CompanyEdit'
+import ActivityCreate from './components/ActivityCreate/ActivityCreate'
 // import ActivityDetail from './components/ActivityDetail/ActivityDetail'
 import ActivityEdit from './components/ActivityEdit/ActivityEdit'
-import JobDetail from './components/JobDetail/JobDetail'
-import CompanyCreate from './components/CompanyCreate/CompanyCreate'
-import ActivityCreate from './components/ActivityCreate/ActivityCreate'
 import JobCreate from './components/JobCreate/JobCreate'
+import JobDetail from './components/JobDetail/JobDetail'
 import JobEdit from './components/JobEdit/JobEdit'
-import CompanyEdit from './components/CompanyEdit/CompanyEdit'
+
 
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
 import { getAllCompanies, getOneCompany, postCompany, putCompany, destroyCompany } from './services/company'
@@ -108,15 +109,7 @@ function App() {
               destroyActivity={destroyActivity}
             />
           </Route>
-          <Route exact path='/companies/:id'>
-            <CompanyDetail />
-          </Route>
-          <Route exact path='/jobs/:id'>
-            <JobDetail getOneJob={getOneJob} />
-          </Route>
-          {/* <Route exact path={`/activity_log/:${currentUser.id}`}>
-            <ActivityDetail />
-          </Route> */}
+
           <Route exact path='/edit/activity/:id'>
             <ActivityEdit 
               currentUser={currentUser}
@@ -126,31 +119,49 @@ function App() {
               putActivity={putActivity} 
             />
           </Route>
-           <Route exact path='/'>
-            <Main currentUser={currentUser}/>
-          </Route>
+
+
           <Route exact path='/companies/:id/edit' render={
             (props) => <CompanyEdit currentUser={currentUser} putCompany={putCompany} getOneCompany={getOneCompany} />} />
 
-          <Route exact path='/jobs/:id/edit'>
-            <JobEdit 
-              currentUser={currentUser}
-              getOneJob={getOneJob}
-              putJob={putJob}
-            />
-          </Route>
           <Route path='/add/company'>
-            <CompanyCreate postCompany={postCompany} />
+            <CompanyCreate currentUser={currentUser} postCompany={postCompany} />
           </Route>
 
           <Route path='/add/job'>
-            <JobCreate postJob={postJob} />
+            <JobCreate currentUser={currentUser} postJob={postJob} getAllCompanies={getAllCompanies} />
           </Route>
 
           <Route path='/add/activity'>
             <ActivityCreate postActivity={postActivity} getAllJobs={getAllJobs} />
           </Route>
 
+          <Route exact path='/jobs/:id'>
+            <JobDetail 
+              currentUser={currentUser}
+              getOneJob={getOneJob} 
+              putJob={putJob}
+              />
+          </Route>
+
+          <Route exact path='/jobs/:id/edit'>
+            <JobEdit 
+              getAllCompanies={getAllCompanies}
+              currentUser={currentUser}
+              getOneJob={getOneJob}
+              putJob={putJob}
+            />
+          </Route>
+
+
+          <Route exact path='/companies/:id'>
+            <CompanyDetail />
+          </Route>
+
+
+          <Route exact path='/'>
+            <Main currentUser={currentUser}/>
+          </Route>
         </Switch>
       </Layout>
     </div>

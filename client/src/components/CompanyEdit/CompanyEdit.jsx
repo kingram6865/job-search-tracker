@@ -49,7 +49,7 @@ export default function CompanyEdit(props) {
           <label>External Recruiter?
           <input name ="external_recruiter" type="checkbox" onChange={handleChange} value={company.external_recruiter ? 't' : 'f'}></input>
           </label>
-          <button>Update Record</button>
+          <label><button>Update Record</button></label>
         </form>
     </div>
   )

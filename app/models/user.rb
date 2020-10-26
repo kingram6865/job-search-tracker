@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :activity_logs
   has_many :jobs, through: :activity_logs
-  has_many :companies, through: :jobs
+  has_and_belongs_to_many :companies
 
   def return_data
    {
