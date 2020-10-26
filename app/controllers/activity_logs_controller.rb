@@ -14,7 +14,8 @@ class ActivityLogsController < ApplicationController
 
   def create
     @activity = ActivityLog.new(activity_params)
-
+    @activity.user = @current_user
+    
     if @activity.save
       render json: @activity, status: :created, location: @activity
     else
