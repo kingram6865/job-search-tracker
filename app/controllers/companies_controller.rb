@@ -1,9 +1,10 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :update, :destroy]
-  before_action :authorize_request, only: [:index, :create, :update, :destroy ]
+  # before_action :authorize_request, only: [:index, :create, :update, :destroy ]
+  before_action :authorize_request
 
   def index
-    @companies = @current_user.companies
+    @companies = @current_user.companies.group(:id)
 
     render json: @companies
   end

@@ -31,24 +31,12 @@ export default function ActivityEdit(props) {
   }
 
   return (
-    <div>
+    <div className="activity-log-edit-form">
     {
       activity &&
       <>
-      <h3>Record Action taken on {activity.job['job_name']} Position</h3>
+      <h3>Action taken on {activity.job['job_name']} Position</h3>
       <form onSubmit={handleSubmit}>
-        {/* <label>Job: */}
-          {/* <label name="jobs"> */}
-            {/* {
-              jobs.filter((item) => item.id === activity.job_id).map((opt, index) => (
-                <React.Fragment key={index}>
-                <span  value={opt.id}>{opt.job_name}</span>
-                <input  readOnly text="number" value={opt.id} />
-                </React.Fragment>
-                ))
-            } */}
-          {/* </label> */}
-        {/* </label> */}
         <label>Action Taken:
           <input type="text" name="action" value={activity.action} onChange={handleChange} />
         </label>

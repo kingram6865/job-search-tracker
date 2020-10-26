@@ -1,3 +1,9 @@
+.activity-log-screen {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
 .status {
   margin: 0 10px;
 }

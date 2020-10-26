@@ -6,7 +6,7 @@ export default function Layout(props){
   const { currentUser, handleLogout } = props
 
   return (
-    <div className="App">
+    <div className="app-layout">
       <Header
         currentUser={currentUser}
         handleLogout={handleLogout}

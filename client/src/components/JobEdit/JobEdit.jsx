@@ -19,7 +19,6 @@ export default function JobEdit(props) {
       const companyData = await getAllCompanies()
       setCompanies(companyData)
     }
-
     
     if (currentUser) {
       fetchJob()

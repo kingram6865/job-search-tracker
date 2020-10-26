@@ -9,8 +9,6 @@ export default function Register(props) {
     password: ''
   })
 
-
-
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({...formData, [name]: value})

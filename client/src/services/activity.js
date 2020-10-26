@@ -2,7 +2,6 @@ import api from './api-config'
 
 export const getAllActivities = async () => {
   const resp = await api.get('/activity_logs')
-
   return resp.data
 }
 

@@ -34,7 +34,7 @@ export default function ActivityCreate(props) {
   }
 
   return (
-    <div>
+    <div className="activity-log-create-form">
       <form onSubmit={handleSubmit}>
         <label>Action:
           <input name="action" type="text" onChange={handleChange} value={formData.action}/>

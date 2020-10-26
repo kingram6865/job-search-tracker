@@ -29,12 +29,9 @@ export default function JobItem(props) {
           <p>{job.job_details}</p>
         </>
       }
-      {/* <Link to='/jobs'>Back</Link> */}
       <i className="fas fa-arrow-circle-left" onClick={() => history.push('/jobs')}></i>
       <i className="fas fa-edit" onClick={() => history.push(`/jobs/${id}/edit`)}></i>
       <i className="fas fa-window-close" onClick={() => alert("Delete this item")}></i>
-      {/* <button>Edit</button> */}
-      {/* <button>Delete</button> */}
     </div>
   )
 }

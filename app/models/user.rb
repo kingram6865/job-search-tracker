@@ -7,8 +7,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
 
   has_many :activity_logs
-  has_many :jobs, through: :activity_logs
   has_and_belongs_to_many :companies
+  has_many :jobs, through: :companies
 
   def return_data
    {

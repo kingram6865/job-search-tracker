@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import './JobCreate.css'
 
 export default function JobCreate(props) {
-  const { postJob, getAllCompanies } = props
+  const { postJob, getAllCompanies, currentUser } = props
   const [companies, setCompanies] = useState([])
   const [formData, setFormData] = useState({
     job_name: '',
@@ -17,12 +17,17 @@ export default function JobCreate(props) {
       const companyData = await getAllCompanies()
       setCompanies(companyData)
     }
-    fetchCompanies()
-  }, [getAllCompanies])
+    if (currentUser) {
+      fetchCompanies()
+    }
+  }, [getAllCompanies, currentUser])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    postJob(formData)
+
+    if (currentUser) {
+      postJob(formData)
+    }
     setFormData(null)
     history.push('/add/job')
   }
@@ -33,7 +38,7 @@ export default function JobCreate(props) {
   }
 
   return (
-    <div>
+    <div className="job-create-form">
       <form onSubmit={handleSubmit}>
         <label><select className="add-job-to-company">
           <option value="0">Which Company?</option>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import './CompanyList.css'
+
 
 /**
  * List all the companies 
@@ -16,7 +18,7 @@ export default function CompanyList(props) {
         <ul className="companies-list">
           {companies.map((item, index) => (<li key={index}><Link to={`/companies/${item.id}`}>{item.company_name}</Link></li>))}
         </ul>
-        <button onClick={() => history.push('/add/company')} className="action-button">Add A Company</button>
+        <label><button onClick={() => history.push('/add/company')} className="action-button">Add A Company</button></label>
       </>
     )
   :

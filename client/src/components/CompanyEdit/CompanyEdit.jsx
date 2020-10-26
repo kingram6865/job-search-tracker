@@ -34,7 +34,7 @@ export default function CompanyEdit(props) {
   }, [getOneCompany, id])
 
   return(
-    <div>
+    <div className="company-edit-form">
       <h3>Edit Company Data</h3>
         <form onSubmit={handleSubmit}>
           <label>Company Name:

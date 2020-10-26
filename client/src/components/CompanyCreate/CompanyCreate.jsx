@@ -28,7 +28,7 @@ export default function CompanyCreate(props) {
   }
 
   return (
-    <div>
+    <div className="company-create-form">
         <h3>Add A Company</h3>
         <form onSubmit={handleSubmit}>
           <label> Company Name:
